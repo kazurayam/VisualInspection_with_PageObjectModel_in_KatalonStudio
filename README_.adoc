@@ -75,7 +75,7 @@ image:docs/store/Flaskr_Main_Twins/20220410_101852/objects/c8c65f537e6a70ac998cb
 4. The test case compares each pairs of URLs and generates diff images. The following is an example of a diff image. Please find the section on the top-left side painted red, which is the diff. 
 image:docs/store/Flaskr_Main_Twins/20220410_101903/objects/ccb41731a97c99d268c36899fd4cf5fbdbff5890.png[]
 
-5. The test case generates a HTML report which shows a list all of the materials (screenshot images and HTML page sources) attached with detail diff information. You can find an example link:https://kazurayam.github.io/VisualInspection_with_PageObjectModel_in_KatalonStudio_Reborn/store/Flaskr_VisualInspectionTwins-index.html[here].
+5. The test case generates a HTML report which shows a list all of the materials (screenshot images and HTML page sources) attached with detail diff information. You can find an example link:https://kazurayam.github.io/VisualInspection_with_PageObjectModel_in_KatalonStudio_Reborn/store/Flaskr_Main_Twins-index.html[here].
 
 ![report](docs/images/Sample4_Flaskr/Flaskr_VisualInspectionTwins.png)
 
