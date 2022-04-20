@@ -2,10 +2,10 @@
     -   [Problem to solve](#problem-to-solve)
     -   [Solution](#solution)
         -   [What the test case does?](#what-the-test-case-does)
-        -   [How to run the test](#how-to-run-the-test)
-    -   [Description](#description)
         -   [What is the Flaskr app?](#what-is-the-flaskr-app)
         -   [How the test is coded](#how-the-test-is-coded)
+        -   [Importing the POM classes source](#importing-the-pom-classes-source)
+        -   [How to run the test](#how-to-run-the-test)
     -   [Environment setup](#environment-setup)
         -   [Installing Docker Desktop](#installing-docker-desktop)
         -   [Command Line Interface](#command-line-interface)
@@ -125,16 +125,6 @@ URLs to visit
 
 ![Flaskr VisualInspectionTwins](docs/images/Sample4_Flaskr/Flaskr_VisualInspectionTwins.png)
 
-### How to run the test
-
-Just open the "Test Cases/Flaskr/VisualInspectionTwins" and run it. As default Chrome Headless browser git will be used, but you can choose any browser. You can choose any Execution Profile. The test won’t be affected by the profile you chose.
-
-The test case will take approximately 30 seconds to finish.
-
-The test case will write the report in the `<projectDir>/store/Flaskr_VisualInspectionTwins-index.html` file.
-
-## Description
-
 ### What is the Flaskr app?
 
 Flaskr is coded in Python language on top of the "Flask" web application framework. I learned the Flaskr web app at the [Flask Tutorial](https://flask.palletsprojects.com/en/2.0.x/tutorial/) authored and published by the Pallets project.
@@ -157,43 +147,29 @@ You can read the sources
 
 -   [Test Cases/main/Flaskr/report](https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Scripts/main/Flaskr/report/Script1646272301192.groovy)
 
-and a lot of related Groovy classes:
-
--   [pom/actions/Action.groovy](https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/actions/Action.java)
-
--   [pom/actions/ActionListener.groovy](https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/actions/ActionListener.groovy)
-
--   [pom/actions/ActionListenerBaseImpl.groovy](https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/actions/ActionListenerBaseImpl.groovy)
-
--   [pom/actions/LoginAction.groovy](https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/actions/LoginAction.groovy)
-
--   [pom/actions/LogoutAction.groovy](https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/actions/LogoutAction.groovy)
-
--   [pom/actions/PostAction.groovy](https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/actions/PostAction.groovy)
-
--   [pom/data/Song.groovy](https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/data/Song.groovy)
-
--   [pom/data/Songs.groovy](https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/data/Songs.groovy)
-
--   [pom/data/User.groovy](https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/data/User.groovy)
-
--   [pom/pages/auth/LoginPage.groovy](https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/pages/auth/LoginPage.groovy)
-
--   [pom/pages/auth/RegisterCredentialPage.groovy](https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/pages/auth/RegisterCredentialPage.groovy)
-
--   [pom/pages/blog/CreatePostPage.groovy](https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/pages/blog/CreatePostPage.groovy)
-
--   [pom/pages/blog/IndexPage.groovy](https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/pages/blog/IndexPage.groovy)
-
--   [pom/pages/blog/Post.groovy](https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/pages/blog/Post.groovy)
-
-Why do I have these Groovy classes? --- It is because I employed the ["Page Object Model"](https://www.guru99.com/page-object-model-pom-page-factory-in-selenium-ultimate-guide.html). The Page Object Model helped me in writing compact and readable codes.
+### Importing the POM classes source
 
 The POM classes are developed outside Katalon Studio. I developed the POM classes in the following project:
 
 -   <https://github.com/kazurayam/MyPythonProjectTemplate/tree/master/uitestjava>
 
 and the `importSourceOfFlaskrPOM` task defined in the `build.gradle` copies the source from the origin to this project.
+
+Why do I have these Groovy classes? --- It is because I employed the ["Page Object Model"](https://www.guru99.com/page-object-model-pom-page-factory-in-selenium-ultimate-guide.html). The Page Object Model helped me in writing compact and readable codes.
+
+### How to run the test
+
+Just run the `Test Cases/main/Flaskr/Main_Twins`.
+
+As default Chrome Headless browser will be used. But you can choose any browser.
+
+You can choose any Execution Profile. The test won’t be affected by the profile you chose.
+
+The test case will take approximately 30 seconds to finish.
+
+The test case will write the report at
+
+-   `<projectDir>/store/Flaskr_Main_Twins-index.html`
 
 ## Environment setup
 
