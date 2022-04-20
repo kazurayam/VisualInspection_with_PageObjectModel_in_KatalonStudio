@@ -1,0 +1,15 @@
+.gradle
+bin
+Reports
+Libs
+
+output
+!output/.gitkeep
+build
+
+.classpath
+.cache
+.project
+
+Drivers/
+store

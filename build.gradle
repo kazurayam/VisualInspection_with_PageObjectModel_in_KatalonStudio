@@ -1,0 +1,75 @@
+// VisualInspection_with_PageObjectModel_in_KatalonStudio/build.gradle
+// $ gradle drivers
+
+version = '0.1.0-SNAPSHOT'
+
+ext {
+    AUTO_IMPORTED_JAR_PREFIX = 'AUTOIMPORTED_'
+    UITESTJAVA_PROJECT_DIR = '../../github/MyPythonProjectTemplate/uitestjava'
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+configurations {
+    myconf
+}
+
+dependencies {
+    myconf group: 'com.kazurayam', name: 'materialstore', version: "0.7.1-SNAPSHOT"
+    myconf group: 'com.kazurayam', name: 'kazurayam_FreeMarker_directives', version: "0.2.0"
+    myconf group: 'com.kazurayam', name: 'ExecutionProfilesLoader', version: '1.2.1'
+    myconf group: 'com.kazurayam', name: 'subprocessj', version: '0.3.3'
+    myconf group: 'ru.yandex.qatools.ashot', name: 'ashot', version: '1.5.4'
+    myconf group: 'io.github.java-diff-utils', name: 'java-diff-utils', version: '4.9'
+    myconf group: 'org.jsoup', name: 'jsoup', version: '1.7.2'
+    myconf group: 'org.freemarker', name: 'freemarker', version: "2.3.31"
+}
+
+task drivers {
+    doFirst {
+        delete fileTree("Drivers") {
+            include("**/" + AUTO_IMPORTED_JAR_PREFIX + "*")
+        }
+    }
+    doLast {
+        copy { copySpec ->
+            copySpec
+                .from(project.getConfigurations().getByName("myconf"))
+                .into("Drivers")
+                .include(
+                    "**/materialstore*.jar",
+                    "**/kazurayam_FreeMarker_directives*.jar",
+                    "**/ExecutionProfilesLoader*.jar",
+                    "**/subprocessj*.jar",
+                    "**/ashot*.jar",
+                    "**/jsoup*.jar",
+                    "**/java-diff-utils*.jar",
+                    "**/freemarker*.jar"
+                    )
+                .rename({ s ->
+                    AUTO_IMPORTED_JAR_PREFIX + s
+                    })
+        }
+    }
+}
+
+/**
+ * This task mports the Java source code from the [MyPythonProjectTemplate/uitestjava](https://github.com/kazurayam/MyPythonProjectTemplate/tree/develop/uitestjava) project.
+ * The java code includes the "Page Object Model" to test the Falskr web app.
+ */
+task importSourceOfFlaskrPOM {
+    doLast {
+        delete files("Include/scripts/groovy/com/kazurayam/uitestjava")
+        copy { copySpec ->
+            copySpec
+                .from("${UITESTJAVA_PROJECT_DIR}/src/main/java")
+                .into("Include/scripts/groovy")
+                .include(
+                    "com/kazurayam/uitestjava/**/*"
+                )
+        }
+    }
+}
