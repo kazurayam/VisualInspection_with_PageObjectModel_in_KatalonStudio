@@ -1,0 +1,4 @@
+= Visual Inspection with Page Object Model in Katalon Studio
+
+
+see https://kazurayam.github.io/VisualInspection_with_PageObjectModel_in_KatalonStudio/ 
