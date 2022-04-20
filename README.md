@@ -1,16 +1,18 @@
 -   [Visual Inspection with Page Object Model in Katalon Studio](#visual-inspection-with-page-object-model-in-katalon-studio)
     -   [Problem to solve](#problem-to-solve)
-        -   [(1) What the test case does?](#1-what-the-test-case-does)
-        -   [(2) How to run the test](#2-how-to-run-the-test)
-        -   [(3) What is the Flaskr app?](#3-what-is-the-flaskr-app)
-        -   [(4) How the test is coded](#4-how-the-test-is-coded)
-    -   [Setup Docker & Flaskr on your PC](#setup-docker-flaskr-on-your-pc)
+    -   [Solution](#solution)
+        -   [What the test case does?](#what-the-test-case-does)
+        -   [How to run the test](#how-to-run-the-test)
+    -   [Description](#description)
+        -   [What is the Flaskr app?](#what-is-the-flaskr-app)
+        -   [How the test is coded](#how-the-test-is-coded)
+    -   [Environment setup](#environment-setup)
         -   [Installing Docker Desktop](#installing-docker-desktop)
         -   [Command Line Interface](#command-line-interface)
         -   [Starting up Flaskr](#starting-up-flaskr)
         -   [Shutting down Flaskr gracefully](#shutting-down-flaskr-gracefully)
         -   [Initializing Database in the web app](#initializing-database-in-the-web-app)
-        -   [How I used Dock er](#how-i-used-dock-er)
+        -   [How I used Docker](#how-i-used-docker)
 
 # Visual Inspection with Page Object Model in Katalon Studio
 
@@ -29,9 +31,11 @@ In that project I developed 3 sample codes:
 
 -   [Sample3 Visual Inspection in Twins mode](https://github.com/kazurayam/VisualInspectionInKatalonStudio_Reborn#sample3-visual-inspection-in-twins-mode)
 
-In these samples, test code opens just one or two URLs. I would like to add another type of sample code (namely, Sample4) of Visual Inspection. The next sample4 shows how to compare multiple pairs of URLs. The sample4 shows how to navigate through a web site that consists of 7 or more views. The sample4 will visit the multiple URLs while taking screenshots and saving HTML sources. I would introduce a design pattern named "POM" (Page Object Model) into the sample4.
+In these samples, test code opens just one or two URLs. I would like to add another type of sample code (namely, Sample4) of Visual Inspection. The sample4 shows how to navigate through a web site that consists of 7 or more views. The sample4 will visit the multiple URLs while taking screenshots and saving HTML sources. I would introduce a design pattern named "POM" (Page Object Model) into the sample4. The sample4 shows how to compare multiple pairs of URLs.
 
-### (1) What the test case does?
+## Solution
+
+### What the test case does?
 
 The test case [Test Cases/main/Flaskr/Main\_Twins](https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Scripts/main/Flaskr/Main_Twins/Script1646271527599.groovy) does the following:
 
@@ -121,7 +125,7 @@ URLs to visit
 
 ![Flaskr VisualInspectionTwins](docs/images/Sample4_Flaskr/Flaskr_VisualInspectionTwins.png)
 
-### (2) How to run the test
+### How to run the test
 
 Just open the "Test Cases/Flaskr/VisualInspectionTwins" and run it. As default Chrome Headless browser git will be used, but you can choose any browser. You can choose any Execution Profile. The test won’t be affected by the profile you chose.
 
@@ -129,7 +133,9 @@ The test case will take approximately 30 seconds to finish.
 
 The test case will write the report in the `<projectDir>/store/Flaskr_VisualInspectionTwins-index.html` file.
 
-### (3) What is the Flaskr app?
+## Description
+
+### What is the Flaskr app?
 
 Flaskr is coded in Python language on top of the "Flask" web application framework. I learned the Flaskr web app at the [Flask Tutorial](https://flask.palletsprojects.com/en/2.0.x/tutorial/) authored and published by the Pallets project.
 
@@ -137,7 +143,7 @@ Flaskr is coded in Python language on top of the "Flask" web application framewo
 
 I used the Flasrk source code 99% as is. I amended it slightly to display the site logo in the Dev env only.
 
-### (4) How the test is coded
+### How the test is coded
 
 You can read the sources
 
@@ -183,7 +189,7 @@ Why do I have these Groovy classes? --- It is because I employed the ["Page Obje
 
 The sample4 is designed to be highly extensible while avoiding code publications as much as possible. It would be a foundation of large scale Visual Inspection projects.
 
-## Setup Docker & Flaskr on your PC
+## Environment setup
 
 In the sample4, we need 2 URLs available on our own PC.
 
@@ -244,7 +250,7 @@ The Flaskr has a backend database where credentials and blog posts are stored. A
 
 Just type CTRL + C to stop the docker process and restart it. The start-up script will automatically initialize the Flaskr’s internal database and make it empty.
 
-### How I used Dock er
+### How I used Docker
 
 Hava a look at the code of [TLFlaskr.groovy](https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Test%20Listeners/TLFlasrk.groovy):
 

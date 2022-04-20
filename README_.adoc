@@ -13,9 +13,11 @@ In that project I developed 3 sample codes:
 - link:https://github.com/kazurayam/VisualInspectionInKatalonStudio_Reborn#sample2-visual-inspection-in-chronos-mode[Sample2 VisualInspectionInChronosMode]
 - link:https://github.com/kazurayam/VisualInspectionInKatalonStudio_Reborn#sample3-visual-inspection-in-twins-mode[Sample3 Visual Inspection in Twins mode]
 
-In these samples, test code opens just one or two URLs. I would like to add another type of sample code (namely, Sample4) of Visual Inspection. The next sample4 shows how to compare multiple pairs of URLs. The sample4 shows how to navigate through a web site that consists of 7 or more views. The sample4 will visit the multiple URLs while taking screenshots and saving HTML sources. I would introduce a design pattern named "POM" (Page Object Model) into the sample4.
+In these samples, test code opens just one or two URLs. I would like to add another type of sample code (namely, Sample4) of Visual Inspection. The sample4 shows how to navigate through a web site that consists of 7 or more views. The sample4 will visit the multiple URLs while taking screenshots and saving HTML sources. I would introduce a design pattern named "POM" (Page Object Model) into the sample4. The sample4 shows how to compare multiple pairs of URLs. 
 
-=== (1) What the test case does?
+== Solution
+
+=== What the test case does?
 
 The test case link:https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Scripts/main/Flaskr/Main_Twins/Script1646271527599.groovy[Test Cases/main/Flaskr/Main_Twins] does the following:
 
@@ -80,7 +82,7 @@ image:docs/store/Flaskr_Main_Twins/20220410_101903/objects/ccb41731a97c99d268c36
 image:docs/images/Sample4_Flaskr/Flaskr_VisualInspectionTwins.png[]
 
 
-=== (2) How to run the test
+=== How to run the test
 
 Just open the "Test Cases/Flaskr/VisualInspectionTwins" and run it. As default Chrome Headless browser git will be used, but you can choose any browser. You can choose any Execution Profile. The test won't be affected by the profile you chose.
 
@@ -88,7 +90,9 @@ The test case will take approximately 30 seconds to finish.
 
 The test case will write the report in the `<projectDir>/store/Flaskr_VisualInspectionTwins-index.html` file.
 
-=== (3) What is the Flaskr app?
+== Description
+
+=== What is the Flaskr app?
 
 Flaskr is coded in Python language on top of the "Flask" web application framework. I learned the Flaskr web app at the link:https://flask.palletsprojects.com/en/2.0.x/tutorial/[Flask Tutorial] authored and published by the Pallets project.
 
@@ -98,7 +102,7 @@ ____
 
 I used the Flasrk source code 99% as is. I amended it slightly to display the site logo in the Dev env only.
 
-=== (4) How the test is coded
+=== How the test is coded
 
 You can read the sources
 
@@ -129,7 +133,7 @@ Why do I have these Groovy classes? --- It is because I employed the link:https:
 The sample4 is designed to be highly extensible while avoiding code publications as much as possible. It would be a foundation of large scale Visual Inspection projects.
 
 
-== Setup Docker & Flaskr on your PC
+== Environment setup
 
 In the sample4, we need 2 URLs available on our own PC.
 
@@ -202,7 +206,7 @@ The Flaskr has a backend database where credentials and blog posts are stored. A
 
 Just type CTRL + C to stop the docker process and restart it. The start-up script will automatically initialize the Flaskr's internal database and make it empty.
 
-=== How I used Dock er
+=== How I used Docker
 
 Hava a look at the code of link:https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Test%20Listeners/TLFlasrk.groovy[TLFlaskr.groovy]:
 
