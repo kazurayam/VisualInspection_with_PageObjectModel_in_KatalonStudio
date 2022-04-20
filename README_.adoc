@@ -75,9 +75,9 @@ image:docs/store/Flaskr_Main_Twins/20220410_101852/objects/c8c65f537e6a70ac998cb
 4. The test case compares each pairs of URLs and generates diff images. The following is an example of a diff image. Please find the section on the top-left side painted red, which is the diff. 
 image:docs/store/Flaskr_Main_Twins/20220410_101903/objects/ccb41731a97c99d268c36899fd4cf5fbdbff5890.png[]
 
-5. The test case generates a HTML report which shows a list all of the materials (screenshot images and HTML page sources) attached with detail diff information. You can find an example link:https://kazurayam.github.io/VisualInspection_with_PageObjectModel_in_KatalonStudio_Reborn/store/Flaskr_Main_Twins-index.html[here].
+5. The test case generates a HTML report which shows a list all of the materials (screenshot images and HTML page sources) attached with detail diff information. You can find an example link:https://kazurayam.github.io/VisualInspection_with_PageObjectModel_in_KatalonStudio/store/Flaskr_Main_Twins-index.html[here].
 
-![report](docs/images/Sample4_Flaskr/Flaskr_VisualInspectionTwins.png)
+image:docs/images/Sample4_Flaskr/Flaskr_VisualInspectionTwins.png[]
 
 
 === (2) How to run the test
@@ -88,93 +88,102 @@ The test case will take approximately 30 seconds to finish.
 
 The test case will write the report in the `<projectDir>/store/Flaskr_VisualInspectionTwins-index.html` file.
 
-=== (3) What is Flaskr?
+=== (3) What is the Flaskr app?
 
-Flaskr is coded in Python language on top of the "Flask" web application framework. I learned the Flaskr web app at the [Flask Tutorial](https://flask.palletsprojects.com/en/2.0.x/tutorial/) authored and published by the Pallets project.
+Flaskr is coded in Python language on top of the "Flask" web application framework. I learned the Flaskr web app at the link:https://flask.palletsprojects.com/en/2.0.x/tutorial/[Flask Tutorial] authored and published by the Pallets project.
 
->This tutorial will walk you through creating a basic blog application called Flaskr. Users will be able to register, log in, create posts, and edit or delete their own posts. 
+____
+This tutorial will walk you through creating a basic blog application called Flaskr. Users will be able to register, log in, create posts, and edit or delete their own posts. 
+____
 
-I used the source code 99% as is. I amended it slightly to diplay the site logo in the Dev env only.
+I used the Flasrk source code 99% as is. I amended it slightly to display the site logo in the Dev env only.
 
 === (4) How the test is coded
 
 You can read the sources
-- [Test Cases/Flaskr/VisualInspectionTwins](Scripts/main/Flaskr/VisualInspectionTwins/Script1642595597544.groovy)
-- [Test Cases/Flaskr/navigate_through_the_site](Scripts/main/Flaskr/navigate_through_the_site/Script1642812095057.groovy)
 
-and a lot of related Groovy classes
+- link:https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Scripts/main/Flaskr/Main_Twins/Script1646271527599.groovy[Test Cases/main/Flaskr/Main_Twins]
+- link:https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Scripts/main/Flaskr/materialize/Script1645868375656.groovy[Test Cases/main/Flaskr/materialize]
+- link:https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Scripts/main/Flaskr/reduceTwins/Script1650172681527.groovy[Test Cases/main/Flaskr/reduceTwins]
+- link:https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Scripts/main/Flaskr/report/Script1646272301192.groovy[Test Cases/main/Flaskr/report]
 
-- [Keywords/flaskrtest/actions/LoginAction.groovy](Keywords/flaskrtest/actions/LoginAction.groovy)
-- [Keywords/flaskrtest/actions/LogoutAction.groovy](Keywords/flaskrtest/actions/LogoutAction.groovy)
-- [Keywords/flaskrtest/actions/PostAction.groovy](Keywords/flaskrtest/actions/PostAction.groovy)
-- [Keywords/flaskrtest/data/Song.groovy](Keywords/flaskrtest/data/Song.groovy)
-- [Keywords/flaskrtest/data/Songs.groovy](Keywords/flaskrtest/data/Songs.groovy)
-- [Keywords/flaskrtest/data/User.groovy](Keywords/flaskrtest/data/User.groovy)
-- [Keywords/flaskrtest/pages/auth/LoginPage.groovy](Keywords/flaskrtest/pages/auth/LogInPage.groovy)
-- [Keywords/flaskrtest/pages/auth/RegisterCredentialPage.groovy](Keywords/flaskrtest/pages/auth/RegisterCredentialPage.groovy)
-- [Keywords/flaskrtest/pages/blog/CreatePostPage.groovy](Keywords/flaskrtest/pages/blog/CreatePostPage.groovy)
-- [Keywords/flaskrtest/pages/blog/IndexPage.groovy](Keywords/flaskrtest/pages/blog/IndexPage.groovy)
-- [Keywords/flaskrtest/pages/blog/Post.groovy](Keywords/flaskrtest/pages/blog/Post.groovy)
+and a lot of related Groovy classes:
 
-Why do I have these Groovy classes? --- It is because I employed the ["Page Object Model"](https://www.guru99.com/page-object-model-pom-page-factory-in-selenium-ultimate-guide.html). The Page Object Model helped me in writing compact and readable codes.
+- link:https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/actions/Action.java[pom/actions/Action.groovy]
+- link:https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/actions/ActionListener.groovy[pom/actions/ActionListener.groovy]
+- link:https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/actions/ActionListenerBaseImpl.groovy[pom/actions/ActionListenerBaseImpl.groovy]
+- link:https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/actions/LoginAction.groovy[pom/actions/LoginAction.groovy]
+- link:https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/actions/LogoutAction.groovy[pom/actions/LogoutAction.groovy]
+- link:https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/actions/PostAction.groovy[pom/actions/PostAction.groovy]
+- link:https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/data/Song.groovy[pom/data/Song.groovy]
+- link:https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/data/Songs.groovy[pom/data/Songs.groovy]
+- link:https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/data/User.groovy[pom/data/User.groovy]
+- link:https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/pages/auth/LoginPage.groovy[pom/pages/auth/LoginPage.groovy]
+- link:https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/pages/auth/RegisterCredentialPage.groovy[pom/pages/auth/RegisterCredentialPage.groovy]
+- link:https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/pages/blog/CreatePostPage.groovy[pom/pages/blog/CreatePostPage.groovy]
+- link:https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/pages/blog/IndexPage.groovy[pom/pages/blog/IndexPage.groovy]
+- link:https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Include/scripts/groovy/com/kazurayam/uitestjava/flaskr/pom/pages/blog/Post.groovy[pom/pages/blog/Post.groovy]
 
-The sample4 is highly extensible while avoiding code publications. It would be a foundation of large scale Visual Inspection projects.
+Why do I have these Groovy classes? --- It is because I employed the link:https://www.guru99.com/page-object-model-pom-page-factory-in-selenium-ultimate-guide.html["Page Object Model"]. The Page Object Model helped me in writing compact and readable codes.
+
+The sample4 is designed to be highly extensible while avoiding code publications as much as possible. It would be a foundation of large scale Visual Inspection projects.
 
 
 == Setup Docker & Flaskr on your PC
 
 In the sample4, we need 2 URLs available on our own PC.
 
-- http://127.0.0.1/
+- http://127.0.0.1:3080/
 - http://127.0.0.1:3090 
 
-You can make it work on your PC. You need [Docker](https://www.docker.com/) installed into your PC.
+You can make it work on your PC. You need link:https://www.docker.com/[Docker] installed into your PC.
 
 === Installing Docker Desktop
 
-On my MacBook Air, I installed [Docker Desktop](https://www.docker.com/products/docker-desktop). Docker Desktop for Windows is also available.
+On my MacBook Air, I installed https://www.docker.com/products/docker-desktop[Docker Desktop]. Docker Desktop for Windows is also available.
 
 === Command Line Interface
 
-Here I assume you work on a Command Line Interface. I use the Terminal.app of macOS. For Windows user, install [Git for Windows](https://gitforwindows.org/) which bundles "Git Bash".
+Here I assume you work on a Command Line Interface. I use the Terminal.app of macOS. For Windows user, install https://gitforwindows.org/[Git for Windows] which bundles "Git Bash".
 
 === Starting up Flaskr
 
 Open a window of Command Line Interface, then execute:
 
-```
+----
 $ cd $VisualInspectionInKatalonStudio_Reborn
 $ ./startup-flaskr-prod.sh
-```
+----
 
 This shell script will emit 2 lines of messages and will block:
-```
+
+----
 you can visit http://127.0.0.1/
 Serving on http://0.0.0.0:8080
-```
+----
 
 Next, you want to open one more window of Command Line Interface, then execute:
 
-```
+----
 $ cd $VisualInspectionInKatalonStudio_Reborn
 $ ./startup-flaskr-dev.sh
-```
+----
 
 This will emit 2 lines of messages and will block:
 
-```
+----
 $ ./startup-flaskr-dev.sh
 you can visit http://127.0.0.1:3090/
 Serving on http://0.0.0.0:8080
-```
+----
 
 By `lsof` command, you can make sure that 2 processes are listening to the IP port #80 and #3090 on your localhost.
 
-```
+----
 $  lsof -i -P | grep LISTEN | grep com.docke
 com.docke   709 kazuakiurayama  107u  IPv6 0x84f53716e8d7cb33      0t0  TCP *:3090 (LISTEN)
 com.docke   709 kazuakiurayama  111u  IPv6 0x84f53716e8d771d3      0t0  TCP *:80 (LISTEN)
-```
+----
 
 === Shutting down Flaskr gracefully
 
@@ -193,21 +202,11 @@ The Flaskr has a backend database where credentials and blog posts are stored. A
 
 Just type CTRL + C to stop the docker process and restart it. The start-up script will automatically initialize the Flaskr's internal database and make it empty.
 
-=== How I used Docker
+=== How I used Dock er
 
-Hava a look at the code of [startup-flaskr-prod.sh](startup-flaskr-prod.sh):
+Hava a look at the code of link:https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Test%20Listeners/TLFlasrk.groovy[TLFlaskr.groovy]:
 
-```
-CWD=$(pwd)
-cd $(mktemp -d)
 
-echo you can visit http://127.0.0.1/
-
-docker run -it -p 80:8080 kazurayam/flaskr-kazurayam:1.1.0
-
-cd $CWD
-```
-
-As you see, it runs `docker run` command with a docker image `kazurayam/flaskr-kazurayam:1.1.0`. I created this docker image and published at the [Docker Hub](https://hub.docker.com/repository/docker/kazurayam/flaskr-kazurayam).
+This code runs `docker run` command with a docker image `kazurayam/flaskr-kazurayam:1.1.0`. I created this docker image and published at the https://hub.docker.com/repository/docker/kazurayam/flaskr-kazurayam[Docker Hub].
 
 
