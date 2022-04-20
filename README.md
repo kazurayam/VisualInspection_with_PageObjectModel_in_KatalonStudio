@@ -145,6 +145,8 @@ I used the Flasrk source code 99% as is. I amended it slightly to display the si
 
 ### How the test is coded
 
+The sample4 is designed to be highly extensible while avoiding code publications as much as possible. It would be a foundation of large scale Visual Inspection projects.
+
 You can read the sources
 
 -   [Test Cases/main/Flaskr/Main\_Twins](https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Scripts/main/Flaskr/Main_Twins/Script1646271527599.groovy)
@@ -187,7 +189,11 @@ and a lot of related Groovy classes:
 
 Why do I have these Groovy classes? --- It is because I employed the ["Page Object Model"](https://www.guru99.com/page-object-model-pom-page-factory-in-selenium-ultimate-guide.html). The Page Object Model helped me in writing compact and readable codes.
 
-The sample4 is designed to be highly extensible while avoiding code publications as much as possible. It would be a foundation of large scale Visual Inspection projects.
+The POM classes are developed outside Katalon Studio. I developed the POM classes in the following project:
+
+-   <https://github.com/kazurayam/MyPythonProjectTemplate/tree/master/uitestjava>
+
+and the `importSourceOfFlaskrPOM` task defined in the `build.gradle` copies the source from the origin to this project.
 
 ## Environment setup
 
