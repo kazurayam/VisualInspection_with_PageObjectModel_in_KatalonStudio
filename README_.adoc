@@ -7,39 +7,75 @@ date: 20 April 2022
 
 I have developed a Katalon Studio project named link:https://github.com/kazurayam/VisualInspectionInKatalonStudio_Reborn[VisualInspectionInKatalonStudio_reborn]. 
 
-- link:https://github.com/kazurayam/VisualInspectionInKatalonStudio_Reborn#sample1-simply-visit-a-url-and-scrape[Sample1 simply visit a URL and scrape]
+In that project I developed 3 sample codes:
+
+- link:https://github.com/kazurayam/VisualInspectionInKatalonStudio_Reborn#sample1-simply-visit-a-url-and-scrape[Sample1 Simply visit a URL and scrape]
 - link:https://github.com/kazurayam/VisualInspectionInKatalonStudio_Reborn#sample2-visual-inspection-in-chronos-mode[Sample2 VisualInspectionInChronosMode]
 - link:https://github.com/kazurayam/VisualInspectionInKatalonStudio_Reborn#sample3-visual-inspection-in-twins-mode[Sample3 Visual Inspection in Twins mode]
 
-In these samples, test code opens just one or two URLs. I would like to add another type of sample code (namely, Sample4) of Visual Inspection. The next sample4 shows how to compare multiple pairs of URLs. The sample4 shows how to navigate though a site for 7 pages while taking screenshots and HTML sources.
+In these samples, test code opens just one or two URLs. I would like to add another type of sample code (namely, Sample4) of Visual Inspection. The next sample4 shows how to compare multiple pairs of URLs. The sample4 shows how to navigate through a web site that consists of 7 or more views. The sample4 will visit the multiple URLs while taking screenshots and saving HTML sources. I would introduce a design pattern named "POM" (Page Object Model) into the sample4.
 
 === (1) What the test case does?
 
-The test case [Test Cases/main/Flaskr/Main_Twins](Scripts/main/Flaskr/Main_Twins/Script1646271527599.groovy) does the following:
+The test case link:https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Scripts/main/Flaskr/Main_Twins/Script1646271527599.groovy[Test Cases/main/Flaskr/Main_Twins] does the following:
 
-1. It compares 2 web sites visually: `http://127.0.0.1` and `http://127.0.0.1:3090`. 
-- (You can setup these URLs on your PC locally. I will explain how to later in this document.)
-2. A web application named **Flakr** run in the URLs. Let me call them "Flaskr *Prod env*" and "Flaskr *Dev env*". These 2 URLs have just the same functionality. But the pages look slightly different. The production environment has no site logo, but the development environment has a small site logo. <img alt="logo" src="docs/images/Sample4_Flaskr/site_logo.png" width="22pt">.
+1. It compares 2 web sites visually: `http://127.0.0.1:3080` and `http://127.0.0.1:3090`. 
+- (You are supposed to setup these URLs on your PC locally. I will explain how to later in this document.)
+2. A web application named **Flakr** runs on the URLs. Let me call `http://127.0.0.1:3080` as "Flaskr *Prod env*", and `http://127.0.0.1:3090` as "Flaskr *Dev env*". These 2 URLs have just the same functionality. But the pages look slightly different. The production environment has no site logo, but the development environment has a small site logo image. 
+image:docs/images/Sample4_Flaskr/site_logo.png[] 
 - the Prod env
-![Prod](docs/store/Flaskr_VisualInspectionTwins/20220122_101200/objects/4646385252b24fdbca95b1ef3413ce6367588388.png)
+image:docs/store/Flaskr_Main_Twins/20220410_101841/objects/f279fbe4784084240db43379ee4134b841862864.png[Prod]
 - the Dev env
-![Dev](docs/store/Flaskr_VisualInspectionTwins/20220122_101212/objects/4640bfb0825cafa44dd85f9fc9fc1515bf0a0f9a.png)
+image:docs/store/Flaskr_Main_Twins/20220410_101852/objects/c8c65f537e6a70ac998cb6175a9fc44be37a7dae.png[Dev]
 
-3. The test case starts visiting the index page, then navigates through pages by clicking menu anchors, typing texts, clicking buttons, etc.
+3. The test case starts with the index page, then navigates through pages by clicking menu anchors, typing texts, clicking buttons, etc.
 
-| Step | description          | Prod env URL      | Dev env URL |
-|:-----|:---------------------|:------------------|:------------|
-|step1 | index page           | http&#58;//127.0.0.1/ | http&#58;//127.0.0.1:3090/ |
-|step2 | register credential  | http&#58;//127.0.0.1/auth/register | http&#58;//127.0.0.1:3090/auth/register |
-|step3 | log in               | http&#58;//127.0.0.1/auth/login | http&#58;//127.0.0.1:3090/auth/login |
-|step4 | posting - blank      | http&#58;//127.0.0.1/create | http&#58;//127.0.0.1:3090/create |
-|step5 | posting - text typed | http&#58;//127.0.0.1/create | http&#58;//127.0.0.1:3090/create |
-|step6 | list of blogs        | http&#58;//127.0.0.1/ | http&#58;//127.0.0.1:3090/ |
-|step7 | log out              | http&#58;//127.0.0.1/ | http&#58;//127.0.0.1:3090/ |
+[cols="4*", options="header"]
+.URLs to visit
+|===
+|Step|description|Prod env URL|Dev env URL
 
-4. The test case compares each pairs of URLs and generates diff images. The following is an example of a diff image. Please find the section on the top-left side <span style="color:red;">painted red</span>, which is the diff. ![diff](docs/store/Flaskr_VisualInspectionTwins/20220122_101212/objects/27e09bdfcfc014b102f1e74b61a428514fbd6cc8.png)
+|step1
+|index page
+|http://127.0.0.1:3080/
+|http://127.0.0.1:3090/
 
-5. The test case generates a HTML report which shows a list all of the materials (screenshot images and HTML page sources) attached with detail diff information. You can find an example [here](https://kazurayam.github.io/VisualInspectionInKatalonStudio_Reborn/store/Flaskr_VisualInspectionTwins-index.html).
+|step2
+|register credential
+|http://127.0.0.1:3080/auth/register
+|http://127.0.0.1:3090/auth/register
+
+|step3
+|log in
+|http://127.0.0.1:3080/auth/login
+|http://127.0.0.1:3090/auth/login
+
+|step4
+|posting - blank
+|http://127.0.0.1:3080/create
+|http://127.0.0.1:3090/create
+
+|step5
+|posting - text typed
+|http://127.0.0.1:3080/create
+|http://127.0.0.1:3090/create
+
+|step6
+|list of blogs
+|http://127.0.0.1:3080/
+|http://127.0.0.1:3090/
+
+|step7
+|log out
+|http://127.0.0.1:3080/
+|http://127.0.0.1:3090/
+
+|===
+
+4. The test case compares each pairs of URLs and generates diff images. The following is an example of a diff image. Please find the section on the top-left side painted red, which is the diff. 
+image:docs/store/Flaskr_Main_Twins/20220410_101903/objects/ccb41731a97c99d268c36899fd4cf5fbdbff5890.png[]
+
+5. The test case generates a HTML report which shows a list all of the materials (screenshot images and HTML page sources) attached with detail diff information. You can find an example link:https://kazurayam.github.io/VisualInspection_with_PageObjectModel_in_KatalonStudio_Reborn/store/Flaskr_VisualInspectionTwins-index.html[here].
 
 ![report](docs/images/Sample4_Flaskr/Flaskr_VisualInspectionTwins.png)
 
