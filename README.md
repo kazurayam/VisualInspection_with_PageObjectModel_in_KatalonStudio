@@ -100,7 +100,7 @@ The test case [Test Cases/main/Flaskr/Main\_Twins](https://github.com/kazurayam/
 URLs to visit
 
 1.  The test case compares each pairs of URLs and generates diff images. The following is an example of a diff image. Please find the section on the top-left side painted red, which is the diff.
-    ![9be93b215e9bb046286cf0b06ed80d2badce4bca](store/Flaskr_Main_Twins/20221016_135331/objects/9be93b215e9bb046286cf0b06ed80d2badce4bca.png)
+    ![9be93b215e9bb046286cf0b06ed80d2badce4bca](https://kazurayam.github.io/VisualInspection_with_PageObjectModel_in_KatalonStudio/store/Flaskr_Main_Twins/20221016_135331/objects/9be93b215e9bb046286cf0b06ed80d2badce4bca.png)
 
 2.  The test case generates a HTML report which shows a list all of the materials (screenshot images and HTML page sources) attached with detail diff information. You can find an example [here](https://kazurayam.github.io/VisualInspection_with_PageObjectModel_in_KatalonStudio/store/Flaskr_Main_Twins-index.html).
 
