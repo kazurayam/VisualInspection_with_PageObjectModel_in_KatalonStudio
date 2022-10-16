@@ -5,7 +5,7 @@ date: 20 April 2022
 
 == Problem to solve
 
-I have developed a Katalon Studio project named link:https://github.com/kazurayam/VisualInspectionInKatalonStudio_Reborn[VisualInspectionInKatalonStudio_reborn]. 
+I have developed a Katalon Studio project named link:https://github.com/kazurayam/VisualInspectionInKatalonStudio_Reborn[VisualInspectionInKatalonStudio_reborn].
 
 In that project I developed 3 sample codes:
 
@@ -13,7 +13,7 @@ In that project I developed 3 sample codes:
 - link:https://github.com/kazurayam/VisualInspectionInKatalonStudio_Reborn#sample2-visual-inspection-in-chronos-mode[Sample2 VisualInspectionInChronosMode]
 - link:https://github.com/kazurayam/VisualInspectionInKatalonStudio_Reborn#sample3-visual-inspection-in-twins-mode[Sample3 Visual Inspection in Twins mode]
 
-In these samples, test code opens just one or two URLs. I would like to add another type of sample code (namely, Sample4) of Visual Inspection. The sample4 shows how to navigate through a web site that consists of 7 or more views. The sample4 will visit the multiple URLs while taking screenshots and saving HTML sources. I would introduce a design pattern named "POM" (Page Object Model) into the sample4. The sample4 shows how to compare multiple pairs of URLs. 
+In these samples, test code opens just one or two URLs. I would like to add another type of sample code (namely, Sample4) of Visual Inspection. The sample4 shows how to navigate through a web site that consists of 7 or more views. The sample4 will visit the multiple URLs while taking screenshots and saving HTML sources. I would introduce a design pattern named "POM" (Page Object Model) into the sample4. The sample4 shows how to compare multiple pairs of URLs.
 
 == Solution
 
@@ -21,14 +21,10 @@ In these samples, test code opens just one or two URLs. I would like to add anot
 
 The test case link:https://github.com/kazurayam/VisualInspection_with_PageObjectModel_in_KatalonStudio/blob/master/Scripts/main/Flaskr/Main_Twins/Script1646271527599.groovy[Test Cases/main/Flaskr/Main_Twins] does the following:
 
-1. It compares 2 web sites visually: `http://127.0.0.1:3080` and `http://127.0.0.1:3090`. 
+1. It compares 2 web sites visually: `http://127.0.0.1:3080` and `http://127.0.0.1:3090`.
 - (You are supposed to setup these URLs on your PC locally. I will explain how to later in this document.)
-2. A web application named **Flakr** runs on the URLs. Let me call `http://127.0.0.1:3080` as "Flaskr *Prod env*", and `http://127.0.0.1:3090` as "Flaskr *Dev env*". These 2 URLs have just the same functionality. But the pages look slightly different. The production environment has no site logo, but the development environment has a small site logo image. 
-image:docs/images/Sample4_Flaskr/site_logo.png[] 
-- the Prod env
-image:docs/store/Flaskr_Main_Twins/20220410_101841/objects/f279fbe4784084240db43379ee4134b841862864.png[Prod]
-- the Dev env
-image:docs/store/Flaskr_Main_Twins/20220410_101852/objects/c8c65f537e6a70ac998cb6175a9fc44be37a7dae.png[Dev]
+2. A web application named **Flakr** runs on the URLs. Let me call `http://127.0.0.1:3080` as "Flaskr *Prod env*", and `http://127.0.0.1:3090` as "Flaskr *Dev env*". These 2 URLs have just the same functionality. But the pages look slightly different. The production environment has no site logo, but the development environment has a small site logo image.
+image:docs/images/Sample4_Flaskr/site_logo.png[]
 
 3. The test case starts with the index page, then navigates through pages by clicking menu anchors, typing texts, clicking buttons, etc.
 
@@ -74,8 +70,8 @@ image:docs/store/Flaskr_Main_Twins/20220410_101852/objects/c8c65f537e6a70ac998cb
 
 |===
 
-4. The test case compares each pairs of URLs and generates diff images. The following is an example of a diff image. Please find the section on the top-left side painted red, which is the diff. 
-image:docs/store/Flaskr_Main_Twins/20220410_101903/objects/ccb41731a97c99d268c36899fd4cf5fbdbff5890.png[]
+4. The test case compares each pairs of URLs and generates diff images. The following is an example of a diff image. Please find the section on the top-left side painted red, which is the diff.
+image:store/Flaskr_Main_Twins/20221016_135331/objects/9be93b215e9bb046286cf0b06ed80d2badce4bca.png[]
 
 5. The test case generates a HTML report which shows a list all of the materials (screenshot images and HTML page sources) attached with detail diff information. You can find an example link:https://kazurayam.github.io/VisualInspection_with_PageObjectModel_in_KatalonStudio/store/Flaskr_Main_Twins-index.html[here].
 
@@ -88,7 +84,7 @@ image:docs/images/Sample4_Flaskr/Flaskr_VisualInspectionTwins.png[]
 Flaskr is coded in Python language on top of the "Flask" web application framework. I learned the Flaskr web app at the link:https://flask.palletsprojects.com/en/2.0.x/tutorial/[Flask Tutorial] authored and published by the Pallets project.
 
 ____
-This tutorial will walk you through creating a basic blog application called Flaskr. Users will be able to register, log in, create posts, and edit or delete their own posts. 
+This tutorial will walk you through creating a basic blog application called Flaskr. Users will be able to register, log in, create posts, and edit or delete their own posts.
 ____
 
 I used the Flasrk source code 99% as is. I amended it slightly to display the site logo in the Dev env only.
@@ -114,7 +110,7 @@ The POM classes are developed outside Katalon Studio. I developed the POM classe
 
 - https://github.com/kazurayam/MyPythonProjectTemplate/tree/master/uitestjava
 
-and the `importSourceOfFlaskrPOM` task defined in the `build.gradle` copies the source from the origin to this project. 
+and the `importSourceOfFlaskrPOM` task defined in the `build.gradle` copies the source from the origin to this project.
 
 Why do I have these Groovy classes? --- It is because I employed the link:https://www.guru99.com/page-object-model-pom-page-factory-in-selenium-ultimate-guide.html["Page Object Model"]. The Page Object Model helped me in writing compact and readable codes.
 
@@ -123,7 +119,7 @@ Why do I have these Groovy classes? --- It is because I employed the link:https:
 
 Just run the `Test Cases/main/Flaskr/Main_Twins`.
 
-As default Chrome Headless browser will be used. But you can choose any browser. 
+As default Chrome Headless browser will be used. But you can choose any browser.
 
 You can choose any Execution Profile. The test won't be affected by the profile you chose.
 
@@ -139,7 +135,7 @@ The test case will write the report at
 In the sample4, we need 2 URLs available on our own PC.
 
 - http://127.0.0.1:3080/
-- http://127.0.0.1:3090 
+- http://127.0.0.1:3090
 
 You can make it work on your PC. You need link:https://www.docker.com/[Docker] installed into your PC.
 
