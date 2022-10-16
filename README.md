@@ -6,8 +6,7 @@ date: 20 April 2022
 ## Problem to solve
 
 I have developed a Katalon Studio project named [VisualInspectionInKatalonStudio\_reborn](https://github.com/kazurayam/VisualInspectionInKatalonStudio_Reborn).
-
-In that project I developed 3 sample codes:
+This project aims taking 2 sets of screenshots of a Web application --- namely the Production env and the Development Env, and compare the images to find out if there is any unexpected differences. In the "Reborn" project, I developed 3 sample codes:
 
 -   [Sample1 Simply visit a URL and scrape](https://github.com/kazurayam/VisualInspectionInKatalonStudio_Reborn#sample1-simply-visit-a-url-and-scrape)
 
@@ -15,7 +14,11 @@ In that project I developed 3 sample codes:
 
 -   [Sample3 Visual Inspection in Twins mode](https://github.com/kazurayam/VisualInspectionInKatalonStudio_Reborn#sample3-visual-inspection-in-twins-mode)
 
-In these samples, test code opens just one or two URLs. I would like to add another type of sample code (namely, Sample4) of Visual Inspection. The sample4 shows how to navigate through a web site that consists of 7 or more views. The sample4 will visit the multiple URLs while taking screenshots and saving HTML sources. I would introduce a design pattern named "POM" (Page Object Model) into the sample4. The sample4 shows how to compare multiple pairs of URLs.
+In these samples, test code opens just one or two URLs. I would like to add another sample code of larger scale.
+
+The new sample here shows how to navigate through a web site that consists of 7 or more views. The new sample will visit the multiple URLs while taking screenshots and saving HTML sources. The more number of pages we take, the testing code tend to become verbose with a lot of duplication. The code duplication makes it harder to maintain.
+
+In order to reduce the code duplication, I would introduce a widely-know design pattern "POM" (**Page Object Model**) into the new sample.
 
 ## Solution
 
