@@ -1,19 +1,3 @@
--   [Visual Inspection with Page Object Model in Katalon Studio](#visual-inspection-with-page-object-model-in-katalon-studio)
-    -   [Problem to solve](#problem-to-solve)
-    -   [Solution](#solution)
-        -   [What the test case does?](#what-the-test-case-does)
-        -   [What is the Flaskr app?](#what-is-the-flaskr-app)
-        -   [How the test is coded](#how-the-test-is-coded)
-        -   [Importing the POM classes source](#importing-the-pom-classes-source)
-        -   [How to run the test](#how-to-run-the-test)
-    -   [Environment setup](#environment-setup)
-        -   [Installing Docker Desktop](#installing-docker-desktop)
-        -   [Command Line Interface](#command-line-interface)
-        -   [Starting up Flaskr](#starting-up-flaskr)
-        -   [Shutting down Flaskr gracefully](#shutting-down-flaskr-gracefully)
-        -   [Initializing Database in the web app](#initializing-database-in-the-web-app)
-        -   [How I used Docker](#how-i-used-docker)
-
 # Visual Inspection with Page Object Model in Katalon Studio
 
 author: kazurayam
@@ -45,12 +29,6 @@ The test case [Test Cases/main/Flaskr/Main\_Twins](https://github.com/kazurayam/
 
 2.  A web application named **Flakr** runs on the URLs. Let me call `http://127.0.0.1:3080` as "Flaskr **Prod env**", and `http://127.0.0.1:3090` as "Flaskr **Dev env**". These 2 URLs have just the same functionality. But the pages look slightly different. The production environment has no site logo, but the development environment has a small site logo image.
     ![site logo](docs/images/Sample4_Flaskr/site_logo.png)
-
-    -   the Prod env
-        ![Prod](docs/store/Flaskr_Main_Twins/20220410_101841/objects/f279fbe4784084240db43379ee4134b841862864.png)
-
-    -   the Dev env
-        ![Dev](docs/store/Flaskr_Main_Twins/20220410_101852/objects/c8c65f537e6a70ac998cb6175a9fc44be37a7dae.png)
 
 3.  The test case starts with the index page, then navigates through pages by clicking menu anchors, typing texts, clicking buttons, etc.
 
@@ -119,7 +97,7 @@ The test case [Test Cases/main/Flaskr/Main\_Twins](https://github.com/kazurayam/
 URLs to visit
 
 1.  The test case compares each pairs of URLs and generates diff images. The following is an example of a diff image. Please find the section on the top-left side painted red, which is the diff.
-    ![ccb41731a97c99d268c36899fd4cf5fbdbff5890](docs/store/Flaskr_Main_Twins/20220410_101903/objects/ccb41731a97c99d268c36899fd4cf5fbdbff5890.png)
+    ![9be93b215e9bb046286cf0b06ed80d2badce4bca](store/Flaskr_Main_Twins/20221016_135331/objects/9be93b215e9bb046286cf0b06ed80d2badce4bca.png)
 
 2.  The test case generates a HTML report which shows a list all of the materials (screenshot images and HTML page sources) attached with detail diff information. You can find an example [here](https://kazurayam.github.io/VisualInspection_with_PageObjectModel_in_KatalonStudio/store/Flaskr_Main_Twins-index.html).
 
@@ -212,7 +190,7 @@ This will emit 2 lines of messages and will block:
     you can visit http://127.0.0.1:3090/
     Serving on http://0.0.0.0:8080
 
-By `lsof` command, you can make sure that 2 processes are listening to the IP port #80 and #3090 on your localhost.
+By `lsof` command, you can make sure that 2 processes are listening to the IP port \#80 and \#3090 on your localhost.
 
     $  lsof -i -P | grep LISTEN | grep com.docke
     com.docke   709 kazuakiurayama  107u  IPv6 0x84f53716e8d7cb33      0t0  TCP *:3090 (LISTEN)
@@ -224,7 +202,7 @@ You can stop the docker process gracefully by typing CTRL + C.
 
 You should NEVER close the window of Command Line Interface without stopping the docker process by CTLR + C.
 
-If you forced to close the window, then IP Port #80 and #3090 might be left **USED** status. In that case you would fail to start a new process of Flaskr again. When it occurred, you need to stop & restart your PC/OS to release the ports.
+If you forced to close the window, then IP Port \#80 and \#3090 might be left **USED** status. In that case you would fail to start a new process of Flaskr again. When it occurred, you need to stop & restart your PC/OS to release the ports.
 
 ### Initializing Database in the web app
 
